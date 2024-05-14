@@ -1,5 +1,6 @@
-console.log("Web Serverni boshlash");
+// Express Framework
 
+console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express(); //app ilovasini chaqiradi
 const http = require("http");
@@ -22,7 +23,7 @@ app.use(express.urlencoded({extended: true})); // html forumdan publish qilingan
 // tp dp that we need to install ejs
 
 app.set("views", "views");
-app.set("views engine", "ejs");
+app.set("views engine", "ejs"); // BSSR
 
 
 // 4 Rooting code
@@ -40,6 +41,10 @@ let PORT = 3000;
 server.listen(PORT, function (){
     console.log(`The server is working successfully on port: ${PORT}`);
 });
-
 // localhost:3000 meni serverim
 // after changing the code, restart the code. 
+// gitni initialize nega kerak, boshqa odam git install deb yozganda bizni dependencidagi packagelarni install qilib beradi
+
+
+// master branch => for learning porpose, for us just. (later see again )
+// develop branch 
