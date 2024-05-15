@@ -1,5 +1,3 @@
-// Express Framework
-
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express(); //app ilovasini chaqiradi
@@ -23,21 +21,31 @@ app.use(express.urlencoded({extended: true})); // html forumdan publish qilingan
 // tp dp that we need to install ejs
 
 app.set("views", "views");
-app.set("views engine", "ejs"); // BSSR
+app.set("view engine", "ejs"); // BSSR
 
 
 // 4 Rooting code
-app.get("/hello", function(req, res) {
-    res.end("<h1>Hello World</h1>"); // "/hello" adresni shakllantiradi, local 300 dan keiyn slash vilan helloni tayp qilamiz
+// app.get("/hello", function(req, res) {
+//     res.end("<h1>Hello World</h1>"); // "/hello" adresni shakllantiradi, local 300 dan keiyn slash vilan helloni tayp qilamiz
+// });
+// app.get("/gift", function(req, res) {
+//     res.end("<h1>Sov`g`a bo`limi</h1>"); 
+// });
+
+app.post("/create-item", (req, res) => { 
+    console.log(req.body);
+    res.json({ test: "success" });
 });
-app.get("/gift", function(req, res) {
-    res.end("<h1>Sov`g`a bo`limi</h1>"); 
+
+app.get("/", function (req, res) { 
+    res.render("harid");
 });
+
+
 
 // make server
 const server = http.createServer(app);
-let PORT = 3000;
-(app); // htpp is core model
+let PORT = 3000; // 3000 meni eski serveri edi, 3000da hato berdi
 server.listen(PORT, function (){
     console.log(`The server is working successfully on port: ${PORT}`);
 });
