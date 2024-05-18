@@ -60,7 +60,7 @@ app.get("/", function (req, res) {  // serverdan data chaqirvolish
 
 // make server
 const server = http.createServer(app);
-let PORT = 3002; // 3000 meni eski serveri edi, 3000da hato berdi
+let PORT = 3000; // 3000 meni eski serveri edi, 3000da hato berdi
 server.listen(PORT, function (){
     console.log(`The server is working successfully on port: ${PORT}`);
 });
