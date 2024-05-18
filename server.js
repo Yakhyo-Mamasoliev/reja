@@ -1,7 +1,6 @@
 // express - backend server quirsh uchun framework
 
 
-
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express(); //app ilovasini chaqiradi
@@ -15,7 +14,6 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
         user = JSON.parse(data);
     }
 });
-
 
 // 4ta bosqichi bor
 
@@ -60,17 +58,18 @@ app.get("/", function (req, res) {  // serverdan data chaqirvolish
 });
 
 
-
-
 // make server
 const server = http.createServer(app);
-let PORT = 3000; // 3000 meni eski serveri edi, 3000da hato berdi
+let PORT = 3002; // 3000 meni eski serveri edi, 3000da hato berdi
 server.listen(PORT, function (){
     console.log(`The server is working successfully on port: ${PORT}`);
 });
+
 // localhost:3000 meni serverim
 // after changing the code, restart the code. 
 // gitni initialize nega kerak, boshqa odam git install deb yozganda bizni dependencidagi packagelarni install qilib beradi
 
 // master branch => for learning porpose, for us just. (later see again )
 // develop branch 
+
+
