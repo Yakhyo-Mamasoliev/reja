@@ -63,6 +63,7 @@ app.get("/", function (req, res) {  // serverdan data chaqirvolish
 
 
 // make server
+// all responses from users comes here (http.createServer(app);)
 const server = http.createServer(app);
 let PORT = 3000; 
 server.listen(PORT, function (){
