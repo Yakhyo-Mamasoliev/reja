@@ -9,8 +9,6 @@ const fs = require("fs");
 // MongoDB ulash
 
 const db = require("./server").db().
-
-
 fs.readFile("database/user.json", "utf8", (err, data) => {
     if (err) {
         console.log("ERROR:", err);
@@ -54,26 +52,36 @@ app.set("view engine", "ejs"); // BSSR
 //     res.end("<h1>Sov`g`a bo`limi</h1>"); 
 // });
 
-app.post("/create-item", (req, res) => { // mutation qiladi, datani update qiladi
+app.post("/create-item", (req, res) => {
     console.log(req.body);
-    res.json({ test: "success" });
-});
-
-app.get("/author", (req, res) => {
-	res.render("author", { user: user });
-});
-
-app.get("/", function (req, res) {  // serverdan data chaqirvolish
-    db.collection("plans").find().toArray((err, data) => {
-        if(err) {
-            console.log(err);
-            res.end("something went wrong");
-        } else {
-            console.log(data);
-            res.render("reja");
-        }
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => { // Corrected syntax here
+      if (err) {
+        console.log(err);
+        res.end("something went wrong");
+      } else {
+        res.end("Successfully added");
+      }
     });
-});
+  });
+
+// app.get("/author", (req, res) => {
+// 	res.render("author", { user: user });
+// });
+
+app.get("/", async (req, res) => {
+    const db = req.app.locals.db;
+    try {
+      const data = await db.collection("plans").find().toArray();
+      console.log(data);
+      res.render("reja", { plans: data });
+    } catch (err) {
+      console.log(err);
+      res.end("something went wrong");
+    }
+  });
+  
+
 
 
 
