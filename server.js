@@ -13,7 +13,7 @@ mongodb.connect(
   },
   (err, client) => {
     if (err) {
-      console.log("Error on connection MongoDB");
+      console.log("Error in connection MongoDB");
     } else {
       console.log("MongoDB connection succed");
       module.exports = client;
