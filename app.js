@@ -54,6 +54,7 @@ app.set("view engine", "ejs"); // BSSR
 
 app.post("/create-item", (req, res) => {
     console.log(req.body);
+<<<<<<< HEAD
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({ reja: new_reja }, (err, data) => { // Corrected syntax here
       if (err) {
@@ -82,8 +83,18 @@ app.get("/", async (req, res) => {
   });
   
 
+=======
+    res.json({ test: "success" });
+});
 
+app.get("/author", (req, res) => {
+	res.render("author", { user: user });
+});
 
+app.get("/", function (req, res) {  // serverdan data chaqirvolish
+    res.render("reja");
+});
+>>>>>>> parent of 7b92807 (chnages to app.js)
 
 
 // make server
