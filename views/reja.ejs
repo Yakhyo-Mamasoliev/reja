@@ -28,14 +28,29 @@
               class="form-control mr-3"
             />
             <button class="btn btn-primary" style="border-radius: 20px">
-              Yangi Reja Qo`shish
+              Yangi Reja Qoshish
             </button>
           </div>
         </form>
       </div>
+      <ul id="item-list" class="list-group">
+        <%items.map((item)=>{ %>
+        <li
+          class="list-group-item list-group-item-info d-flex align-items-center justify-content-between"
+        >
+          <span class="item-text"><%= item.reja%></span>
+          <div>
+            <button data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+              O`zgartirish
+            </button>
+            <button data-id="<%=item._id%>" class="delete-me btn btn-danger btn-sm">Ochirish</button>
+          </div>
+        </li>
 
-      <button id=" clean-all" class="btn btn-danger" style="border-radius: 20px">
-        Hamma Rejalarni o`chirish
+        <% })%>
+      </ul>
+      <button id="clear-all" class="btn btn-danger" style="border-radius: 20px">
+        Hamma Rejalarni Ochirish
       </button>
     </div>
   </body>
