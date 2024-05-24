@@ -15,11 +15,6 @@ function countDigits(str) {
   console.log(countDigits("ad2a54y79wet0sfgb9"));
 
 
-
-
-
-
-
 // TASK A
 // Harf sifatida kiritilgan birinchi parametr, 
 // kiritilgan ikkinchi parametr tarkibida nechta ekanligini qaytaruvchi
