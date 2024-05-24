@@ -16,5 +16,14 @@
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
     "prompt": "^1.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yakhyo-Mamasoliev/reja.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yakhyo-Mamasoliev/reja/issues"
+  },
+  "homepage": "https://github.com/Yakhyo-Mamasoliev/reja#readme"
 }

@@ -14,7 +14,6 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
         user = JSON.parse(data);
     }
 });
-
 // 4ta bosqichi bor
 
 // Dynamic languages bo`lgabligiga ejs ishlayamiz, 
@@ -58,7 +57,7 @@ app.get("/author", (req, res) => {
 });
 
 app.get("/", function (req, res) {  // serverdan data chaqirvolish
-    res.render("harid");
+    res.render("reja");
 });
 
 
@@ -67,7 +66,7 @@ app.get("/", function (req, res) {  // serverdan data chaqirvolish
 const server = http.createServer(app);
 let PORT = 3000; 
 server.listen(PORT, function (){
-    console.log(`The server is working successfully on port: ${PORT}`);
+    console.log(`The server is working successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
 
 // localhost:3000 meni serverim
