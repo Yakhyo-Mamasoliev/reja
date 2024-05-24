@@ -1,121 +1,27 @@
-// express - backend server quirsh uchun framework
-
-
 console.log("Web Serverni boshlash");
 const express = require("express");
-const app = express(); //app ilovasini chaqiradi
-const fs = require("fs");
+const res = require("express/lib/response");
+const app = express();
 
 // MongoDB ulash
+const db = require("./server").db();
 
-const db = require("./server").db().
-fs.readFile("database/user.json", "utf8", (err, data) => {
-    if (err) {
-        console.log("ERROR:", err);
-    } else {
-        user = JSON.parse(data);
-    }
-});
+// Kirish code
+app.use(express.static("public"));
+app.use(express.json()); 
+app.use(express.urlencoded({extended: true})); 
 
-
-
-// 4ta bosqichi bor
-
-// Dynamic languages bo`lgabligiga ejs ishlayamiz, 
-
-// 1 Kirish Code 
-// Patter 2 xil, Artitectural, Design()
-// har qanday browser keladigan request uchun public folder ochiq(uni ko`roliydi);
-// keyinroq bu public folderiga css imagelarni yuklaymiz
-app.use(express.static("public"));// all right, main , left frame is coming form static ezpress// Design patter, tashqi olamga yopqi, ochiq bo`lsa hack ing qiladi
-app.use(express.json()); // json formatni objectga o`girib beradi, kirsihiga permission beradi
-app.use(express.urlencoded({extended: true})); // html forumdan publish qilingan narsalarni express serverimiz qabul qilib oladi, pryamoy kiradi
-
-
-//2: Seession code
-// Sessionga bog`liq narsa yoziladi
-
-// 3 View Code
-// BSSR Backend Side Server Rendering
-// Backendda frontni (html) yasab htmlga yuboramiz
-// tp dp that we need to install ejs
-
+// 2: Seession code
+// 3: Views Code
 app.set("views", "views");
-app.set("view engine", "ejs"); // BSSR
-
+app.set("view engine", "ejs"); 
 
 // 4 Rooting code
-// app.get("/hello", function(req, res) {
-//     res.end("<h1>Hello World</h1>"); // "/hello" adresni shakllantiradi, local 300 dan keiyn slash vilan helloni tayp qilamiz
-// });
-// app.get("/gift", function(req, res) {
-//     res.end("<h1>Sov`g`a bo`limi</h1>"); 
-// });
-
-app.post("/create-item", (req, res) => {
-    console.log(req.body);
-<<<<<<< HEAD
-    const new_reja = req.body.reja;
-    db.collection("plans").insertOne({ reja: new_reja }, (err, data) => { // Corrected syntax here
-      if (err) {
-        console.log(err);
-        res.end("something went wrong");
-      } else {
-        res.end("Successfully added");
-      }
-    });
-  });
-
-// app.get("/author", (req, res) => {
-// 	res.render("author", { user: user });
-// });
-
-app.get("/", async (req, res) => {
-    const db = req.app.locals.db;
-    try {
-      const data = await db.collection("plans").find().toArray();
-      console.log(data);
-      res.render("reja", { plans: data });
-    } catch (err) {
-      console.log(err);
-      res.end("something went wrong");
-    }
-  });
-  
-
-=======
-    res.json({ test: "success" });
+app.post("/create-item", (req, res) => { 
+  //
 });
 
-app.get("/author", (req, res) => {
-	res.render("author", { user: user });
-});
-
-app.get("/", function (req, res) {  // serverdan data chaqirvolish
+app.get("/", function (req, res) { 
     res.render("reja");
 });
->>>>>>> parent of 7b92807 (chnages to app.js)
 
-
-// make server
-// all responses from users comes here (http.createServer(app);)
-// const server = http.createServer(app);
-// let PORT = 3000; 
-// server.listen(PORT, function (){
-//     console.log(`The server is working successfully on port: ${PORT}, http://localhost:${PORT}`);
-// });
-
-// localhost:3000 meni serverim
-// after changing the code, restart the code. 
-// gitni initialize nega kerak, boshqa odam git install deb yozganda bizni dependencidagi packagelarni install qilib beradi
-
-// master branch => for learning porpose, for us just. (later see again )
-// develop branch 
-
-// front-end development 2ga bo`linadi. 
-// 1. Traditional, BSSR
-// 2. Modern SPA
-
-// REQUEST: Traditional API, REST API, GaphQL...
-
-module.exports = app;
