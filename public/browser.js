@@ -73,9 +73,21 @@ if (e.target.classList.contains("edit-me")) {
 });
 
 // clean all
+// document.getElementById("clean-all").addEventListener("click", function() {
+//     axios.post("/delete-all", { delete_all: true }).then((response) => {
+//         alert(response.data.state);
+//         document.location.reload();
+//     });
+// });
+
 document.getElementById("clean-all").addEventListener("click", function() {
     axios.post("/delete-all", { delete_all: true }).then((response) => {
         alert(response.data.state);
-        // document.location.reload();
+        // Remove all items from the DOM
+        document.querySelectorAll('.list-group-item').forEach(item => {
+            item.remove();
+        });
+    }).catch((err) => {
+        console.log("Iltimos qaytadan harakat qiling");
     });
 });
